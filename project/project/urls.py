@@ -16,8 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from rest_framework.routers import DefaultRouter
+from app.views import model_serializer
 
+router = DefaultRouter()
+router. register(r'employees ',model_serializer, basename='task')
 urlpatterns = [
      path('admin/', admin.site.urls),
-    path('',include('app.urls'))
+    path('employe/',include(router.urls))
 ]
